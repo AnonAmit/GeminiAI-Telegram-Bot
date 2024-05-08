@@ -19,9 +19,9 @@ A powerful and versatile chatbot built using the Telegram Bot API and Google's G
    pip install -r requirements.txt
 ```
 4. Run the bot using the following command:4. Run the bot using the following command:
-   ```bash
+```bash
    python main.py ${TG_TOKEN} ${GOOGLE_GEMINI_API}
-   ```
+```
 5. Start chatting with your bot on Telegram!
 
 ## Environment Variables
