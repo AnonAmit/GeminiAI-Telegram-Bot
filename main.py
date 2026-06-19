@@ -1,13 +1,19 @@
 import os
 import asyncio
+import traceback
+from html import escape
 import google.generativeai as genai
 import telebot
 from telebot.async_telebot import AsyncTeleBot
 from telebot.types import Message
 
 # Environment variables
-TG_TOKEN = os.environ['TG_TOKEN']
-GOOGLE_GEMINI_KEY = os.environ['GOOGLE_GEMINI_KEY']
+try:
+    TG_TOKEN = os.environ['TG_TOKEN']
+    GOOGLE_GEMINI_KEY = os.environ['GOOGLE_GEMINI_KEY']
+except KeyError as e:
+    print(f"Missing environment variable: {e}. Please set TG_TOKEN and GOOGLE_GEMINI_KEY.")
+    exit(1)
 
 # Gemini models
 gemini_player_dict = {}
@@ -192,7 +198,8 @@ async def main():
             except Exception:
                 traceback.print_exc()
                 await bot.edit_message_text(error_info, chat_id=sent_message.chat.id, message_id=sent_message.message_id)
-        else:s = message.caption if message.caption else ""
+        else:
+            s = message.caption if message.caption else ""
             try:
                 prompt = s.strip()
                 file_path = await bot.get_file(message.photo[-1].file_id)
