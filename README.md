@@ -16,6 +16,8 @@ A powerful and versatile chatbot built using the Telegram Bot API and Google's G
 2. Set up the environment variables `TG_TOKEN` and `GOOGLE_GEMINI_KEY` in your environment.
 3. Install the required dependencies using pip:
 ```bash
+   git clone https://github.com/AnonAmit/GeminiAI-Telegram-Bot.git
+   cd GeminiAI-Telegram-Bot
    pip install -r requirements.txt
 ```
 4. Run the bot using the following command:4. Run the bot using the following command:
